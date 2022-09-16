@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Task07_Dapper.Models.BookModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Book List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddOrEdit", "Book")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BookId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookPublication)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookPrice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuthorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookPublication)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookPrice)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "AddOrEdit", new { id=item.BookId}) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.BookId })
+        </td>
+    </tr>
+}
+
+</table>
